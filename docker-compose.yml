@@ -1,0 +1,59 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: "3.1"
+services:
+
+    memcached:
+      image: memcached:alpine
+      container_name: athena-memcached
+
+    redis:
+      image: redis:alpine
+      container_name: athena-redis
+
+    mysql:
+      image: mysql:8.0
+      container_name: athena-mysql
+      working_dir: /application
+      volumes:
+        - .:/application
+      environment:
+        - MYSQL_ROOT_PASSWORD=mysql
+        - MYSQL_DATABASE=athena
+        - MYSQL_USER=mysql
+        - MYSQL_PASSWORD=mysql
+      ports:
+        - "8002:3306"
+
+    phpmyadmin:
+      image: phpmyadmin
+      container_name: athena-phpmyadmin
+      working_dir: /application
+      restart: always
+      ports:
+        - 8080:80
+      environment:
+        - PMA_HOST=mysql
+        - PMA_ARBITRARY=1
+        - PMA_USER=mysql
+        - PMA_PASSWORD=mysql
+
+    webserver:
+      image: nginx:alpine
+      container_name: athena-webserver
+      working_dir: /application
+      volumes:
+          - .:/application
+          - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+       - "8000:80"
+
+    php-fpm:
+      build: docker/php-fpm
+      container_name: athena-php-fpm
+      working_dir: /application
+      volumes:
+        - .:/application
+        - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
+

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Form Repeater | Skote - Admin & Dashboard Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="Themesbrand" name="author" />
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body data-sidebar="dark">
+                                        <form class="repeater" enctype="multipart/form-data">
+                                            <div data-repeater-list="group-a">
+                                                <div data-repeater-item class="row">
+                                                    <div  class="mb-3 col-lg-2">
+                                                        <label for="name">Name</label>
+                                                        <input type="text" id="name" name="untyped-input" class="form-control"/>
+                                                    </div>
+        
+                                                    <div  class="mb-3 col-lg-2">
+                                                        <label for="email">Email</label>
+                                                        <input type="email" id="email" class="form-control"/>
+                                                    </div>
+        
+                                                    <div  class="mb-3 col-lg-2">
+                                                        <label for="subject">Subject</label>
+                                                        <input type="text" id="subject" class="form-control"/>
+                                                    </div>
+        
+                                                    <div class="mb-3 col-lg-2">
+                                                        <label for="resume">Resume</label>
+                                                        <input type="file" class="form-control" id="resume">
+                                                    </div>
+        
+                                                    <div class="mb-3 col-lg-2">
+                                                        <label for="message">Message</label>
+                                                        <textarea id="message" class="form-control"></textarea>
+                                                    </div>
+                                                    
+                                                    <div class="col-lg-2 align-self-center">
+                                                        <div class="d-grid">
+                                                            <input data-repeater-delete type="button" class="btn btn-primary" value="Delete"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <input data-repeater-create type="button" class="btn btn-success mt-3 mt-lg-0" value="Add"/>
+                                        </form>
+                        <!-- end row -->
+
+        <script src="assets/libs/jquery/jquery.min.js"></script>
+        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="assets/libs/node-waves/waves.min.js"></script>
+
+
+
+        <script src="assets/js/app.js"></script>
+
+    </body>
+</html>
